@@ -7,9 +7,9 @@ class MessagesController < ApplicationController
     @current_user_id = current_user.id
     @conversation = Conversation.find_by(id: conversation_params[:conversation_id])
     if @conversation.stylist_id == current_user.id
-      @pen_pal = Profile.find_by(user_Id: @conversation.asker_id)
+      @pen_pal = Profile.find_by(user_id: @conversation.asker_id)
     else
-      @pen_pal = Profile.find_by(user_Id: @conversation.stylist_id)
+      @pen_pal = Profile.find_by(user_id: @conversation.stylist_id)
     end
     puts '=' *50
     pp @pen_pal
