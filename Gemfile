@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 # hould only be for development
-gem 'stripe-rails'
+gem 'stripe'
 #Loading environment variables
 gem 'dotenv-rails', groups: [:development, :test]
 #To put all current records into seeds

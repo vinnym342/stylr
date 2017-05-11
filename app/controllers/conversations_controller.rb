@@ -17,20 +17,37 @@ class ConversationsController < ApplicationController
   # POST /conversations.json
   def create
 
-    @conversation = Conversation.new(conversation_params)
-    @conversation.asker_id = current_user.id
-    @conversation.question = message_params[:question]
-    @conversation.resolved = false
+    professional_profile = ProfessionalProfile.find_by(user_id: conversation_params[:stylist_id])
+    amount = professional_profile.message_price * 100
+      customer = Stripe::Customer.create(
+        :email => params[:stripeEmail],
+        :source  => params[:stripeToken]
+      )
 
-    respond_to do |format|
-      if @conversation.save
-        format.html { redirect_to @conversation, notice: 'Conversation was successfully created.' }
-        format.json { render :show, status: :created, location: @conversation }
-      else
-        format.html { render :new }
-        format.json { render json: @conversation.errors, status: :unprocessable_entity }
+      charge = Stripe::Charge.create(
+        :customer    => customer.id,
+        :amount      => amount,
+        :description => 'Conversation pay',
+        :currency    => 'aud'
+      )
+      @conversation = Conversation.new(conversation_params)
+      @conversation.asker_id = current_user.id
+      @conversation.question = message_params[:question]
+      @conversation.resolved = false
+
+      respond_to do |format|
+        if @conversation.save
+          format.html { redirect_to conversation_messages_path(@conversation), notice: 'Conversation was successfully created.' }
+          format.json { render :show, status: :created, location: @conversation }
+        else
+          format.html { redirect_to professional_profile_path(professional_profile) }
+          format.json { render json: @conversation.errors, status: :unprocessable_entity }
+        end
       end
-    end
+
+    rescue Stripe::CardError => e
+    flash[:notice] = e.message
+    redirect_to professional_profile_path(profressional_profile)
   end
 
   # PATCH/PUT /conversations/1

@@ -28,7 +28,12 @@
 <%= form_for @professional_profile, url: conversations_path ,method: :post do |f| %>
   <%= f.hidden_field :stylist_id, value: @professional_profile.user.id  %>
   <%= text_field :question , :question %>
-  <%= f.button '<i class="fa fa-commenting" aria-hidden="true"></i>'.html_safe %>
-<% end %>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-email="<%= current_user.email %>"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-description="Pay to ask a question"
+      data-amount="<%= @professional_profile.message_price * 100 %>"
+      data-locale="auto"></script>
+  <% end %>
 <% end %>
 <%= link_to 'Home', '/' %>
