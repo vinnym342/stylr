@@ -16,7 +16,7 @@ class ConversationsController < ApplicationController
   # POST /conversations
   # POST /conversations.json
   def create
-    asdf
+
     @conversation = Conversation.new(conversation_params)
     @conversation.asker_id = current_user.id
     @conversation.question = message_params[:question]
