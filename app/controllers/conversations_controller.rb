@@ -37,6 +37,9 @@ class ConversationsController < ApplicationController
 
       respond_to do |format|
         if @conversation.save
+          puts '*' * 50
+          TransactionMailer.conversation_payed(current_user,@conversation.question,professional_profile.message_price).deliver
+          puts '*' * 50
           format.html { redirect_to conversation_messages_path(@conversation), notice: 'Conversation was successfully created.' }
           format.json { render :show, status: :created, location: @conversation }
         else
