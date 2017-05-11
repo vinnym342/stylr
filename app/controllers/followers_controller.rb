@@ -1,6 +1,7 @@
 class FollowersController < ApplicationController
   before_action :set_profile, only: [:create]
   before_action :set_follow, only: [:create]
+  before_action :authenticate_user!
 
   def create
     puts "=" * 50
