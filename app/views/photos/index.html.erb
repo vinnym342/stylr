@@ -1,11 +1,12 @@
-<div class="photo-page">
+<h1>Username:<%= @styleboard.user.profile.username %></h1>
+<div class="page photo-page">
   <p id="notice"><%= notice %></p>
     <h1>Photos</h1>
-    <div class="photos">
+    <div class="items photos">
       <% if @photos.present?%>
           <% @photos.each do |photo| %>
-          <div class="photo">
-            @<%= photo.user.profile.username if photo.user.profile != nil %>
+          <div class="item photo">
+            Posted by:<%= link_to photo.user.profile.username, profile_path(photo.user.profile) %>
             <%= image_tag photo.location %>
             <%= photo.caption %>
             <% ratio = PhotosHelper.ratio_of_likes(photo) %>
@@ -38,8 +39,8 @@
                 </div>
               </div>
             </div>
-            <% if photo.user == current_user %>
             <%= link_to 'Show', [@styleboard, photo] %>
+            <% if photo.user == current_user %>
             <%= link_to 'Edit', edit_styleboard_photo_path(@styleboard , photo) %>
             <%= link_to 'Destroy', [@styleboard , photo], method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>

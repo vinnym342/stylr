@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     resources :messages,only: [:create,:index], on: :member
   end
   resources :styleboards do
-    get 'search',to: 'styleboards#search', on: :collection
     # get 'like', to: 'styleboard_likes#create'
     # post 'like', to: 'styleboard_likes#update'
     # delete 'like',to: 'styleboard_likes#destroy'
@@ -29,5 +28,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'welcome#index'
+  resources :welcome, only: [:index] do
+    get 'search',to: 'welcome#search', on: :collection
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

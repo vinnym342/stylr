@@ -10,19 +10,7 @@ class StyleboardsController < ApplicationController
     #arranged by number of likes -  dislikes, from left to right
     @styleboards = Styleboard.all.sort_by{|styleboard| styleboard.likes.where(liked: true).count - styleboard.likes.where(liked: false).count }.reverse
   end
-  def search
-    search_tags = params[:search].gsub(/(#)\w+/).map {|tag| tag}
-    @stylboard_ids = []
-    search_tags.each do |search_tag|
-      hashtags = Hashtag.where(tag: search_tag)
-      if hashtags.present?
-        hashtags.each do |hashtag|
-          @stylboard_ids << hashtag.styleboard_id
-        end
-      end
-    end
-    @stylboard_ids.uniq! if @stylboard_ids.present?
-  end
+
 
   def most_disliked
     #arranged by number of dislikes, from left to right

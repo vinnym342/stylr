@@ -1,0 +1,85 @@
+<% if @option == "hashtag" %>
+<div class="items">
+  <% @stylboard_ids.each do |styleboard_id| %>
+  <% styleboard = Styleboard.find(styleboard_id) %>
+  <div class="item styleboard">
+    user:<%= link_to styleboard.user.profile.username,profile_path(styleboard.user.profile) if styleboard.user.profile != nil %> <br>
+    Description:<%= styleboard.description %> <br>
+    <%= styleboard.public %> <br>
+    <%= image_tag styleboard.photo %> <br>
+    <div class="like-bar">
+        <div class="buttons">
+          <%= render 'like_dislike', html_class: 'like',styleboard: styleboard, like: true,current_user: current_user,button: StyleboardsHelper.liked?(current_user,styleboard) %>
+          <%= render 'like_dislike', html_class: 'dislike',styleboard: styleboard, like: false,current_user: current_user,button: StyleboardsHelper.disliked?(current_user,styleboard) %>
+        </div>
+        <% like_ratio = StyleboardsHelper.ratio_of_likes(styleboard) %>
+        <div class="bottom">
+          <div class="bar">
+          <span class="likes" style="width: <%= like_ratio %>%;"></span>
+          <span class="dislikes" style="width: <%= 100 - like_ratio %>%;"></span>
+          </div>
+        </div>
+    </div>
+    <%= link_to 'View', styleboard_photos_path(styleboard) %> <br>
+
+    <% if styleboard.user == current_user %>
+    <!-- Make this part a dropdown menu, with a little admin symbol -->
+    <%= link_to 'Show', styleboard %>
+    <%= link_to 'Edit', edit_styleboard_path(styleboard) %>
+    <%= link_to 'Destroy', styleboard, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+<% else %>
+<div class="items">
+  <% if @profiles.present? %>
+  <% @profiles.each do |profile| %>
+  <div class="item">
+    <div class="row">
+      <p>
+        <strong>Followers:</strong>
+        <%= @followers_count %>
+      </p>
+
+      <p>
+        <strong>Following:</strong>
+        <%= @following_count %>
+      </p>
+    </div>
+    <p>
+      <strong>Name:</strong>
+      <%= profile.first_name %> <%= profile.last_name %>
+    </p>
+    <div class="row">
+
+      <p>
+        <%= image_tag profile.profile_pic %>
+      </p>
+    </div>
+
+    <p>
+      <strong>Username:</strong>
+      <%= link_to profile.username, profile_path(profile) %>
+    </p>
+
+  <strong>Bio:</strong>
+    <p>
+      <%= text_area_tag "chillin",profile.bio ,cols: 40, rows: 5,:readonly => true%>
+    </p>
+
+    <% if @professional_profile.present? %>
+        <%= link_to "View professional profile",professional_profile_path(@professional_profile) %>
+        <br>
+    <% else %>
+      <% if profile.user == current_user %>
+        <%= link_to "Become a stylist",new_professional_profile_path(current_user) %>
+        <br>
+      <% end %>
+    <% end %>
+  </div>
+  <% end %>
+  <% else %>
+  <% end %>
+</div>
+<% end %>

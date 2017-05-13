@@ -24,7 +24,9 @@ class ProfilesController < ApplicationController
     @followers_count = Follower.where(followee_id: @profile.user.id).count
     @following_count = Follower.where(follower_id: @profile.user.id).count
     @follower = Follower.new
-    @professional_profile = @profile.user.professional_profile #@profile.user_id
+    profile_user = @profile.user #@profile.user_id
+    @professional_profile = profile_user.professional_profile
+    @styleboards = profile_user.styleboard
   end
 
   # GET /profiles/new

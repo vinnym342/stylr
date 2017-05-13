@@ -1,13 +1,14 @@
 // Place all the styles related to the Styleboards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.styleboard-page {
-  .styleboards {
+
+  .items {
     width: 100%;
     text-align: center;
     display: inline-flex;
     flex-direction: row;
-    .styleboard {
+    .item {
+      border-style: solid;
       padding: auto 0 auto 0;
       background-color: #c6ff8e;
       width: 20%;
@@ -53,4 +54,3 @@
       }
         }
       }
-    }

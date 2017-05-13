@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<div class="styleboard-page">
+<div class="page styleboard-page">
   <h1>Styleboards</h1>
-  <div class="styleboards">
+  <div class="items styleboards">
       <% @styleboards.each do |styleboard| %>
-          <div class="styleboard">
+          <div class="item styleboard">
             <% styleboard_user = styleboard.user %>
             user:<%= link_to styleboard_user.profile.username, profile_path(styleboard_user.profile) if styleboard_user.profile != nil %> <br>
             Description:<%= styleboard.description %> <br>

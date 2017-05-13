@@ -29,8 +29,6 @@
   <%= f.hidden_field :stylist_id, value: @professional_profile.user.id  %>
   <%= text_field :question , :question %>
 
-
-
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-email="<%= current_user.email %>"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
