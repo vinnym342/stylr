@@ -48,14 +48,14 @@ dbdesigner Wireframes
 ---
 ## 5. DB Schema
 
-![Dbdesigner](https://s3-ap-southeast-2.amazonaws.com/stylrphotos/Photos/download-1.png)
+[Dbdesigner](https://dbdesigner.net/designer/schema/86858)
 
 ---
 ## 6. Tools used
 
-1. Trello - [Link to Trello](https://trello.com/b/435wq8id/stylr)  
-2. DB designer - [Link to DB Designer](https://dbdesigner.net/designer/schema/56751)
-3. Figma for wireframing
+1. [Trello](https://trello.com/b/435wq8id/stylr)  
+2. [DB Designer](https://dbdesigner.net/designer/schema/56751)
+3. [Figma](https://www.figma.com/file/QeQpBs4S8GgAKH0XTwbebFwu/Untitled) for wireframing
 4. Gem : Devise, S3, Stripe, Mailgun, seed-dump, Carrierwave (for image uploads)
 
 __Notes__ :   
@@ -80,6 +80,8 @@ Trello was used as a project planning too and also to keep track of ongoing chan
   2. Follower update notification
   3. Not just limited to clothes but also interior design, house design, websites ie.anyting with styling
   4. More than one type of consultation e.g. Videocall or appointment arrangement
-  5. Devise email confirmation
+  5. Add search by profile
+  6. Devise email confirmation
+  7. Improve security
 
 ---
