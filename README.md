@@ -26,7 +26,7 @@ I used Figma to create my wireframes, and dbdesigner to create my database schem
 dbdesigner Wireframes
 
 [Trello](https://trello.com/b/435wq8id/stylr)
-![Wireframes](https://trello-attachments.s3.amazonaws.com/582267b2b78b42ccc28f4ca0/582295bc223879d4f07a8cb5/2e06457cb59f125a5c3b15905143d1a9/ReSUS_Wireframe-Final.png)
+[Figma wireframes](https://trello.com/b/435wq8id/stylr)
 
 ---
 
@@ -53,7 +53,7 @@ dbdesigner Wireframes
 ---
 ## 6. Tools used
 
-1. Trello - [Link to Trello](https://trello.com/b/zIks2ZZl/ian-resus-healthcare-for-everyone, "ReSUS - Trello")  
+1. Trello - [Link to Trello](https://trello.com/b/435wq8id/stylr)  
 2. DB designer - [Link to DB Designer](https://dbdesigner.net/designer/schema/56751)
 3. Figma for wireframing
 4. Gem : Devise, S3, Stripe, Mailgun, seed-dump, Carrierwave (for image uploads)
