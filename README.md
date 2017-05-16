@@ -1,11 +1,11 @@
 # Overview
-1. App brief for ReSUS
+1. App brief for Stylr
 2. Requirements
-3. Wireframing & workflow diagram
+3. Wireframing
 4. User stories
 5. DB Schema
-6. Current bugs, future updates and others.
-7. Coding and current bugs
+6. Tools Used
+7. Current bugs, future updates and others.
 
 ---
 ## 1. App brief for Stylr
