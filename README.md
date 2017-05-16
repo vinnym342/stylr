@@ -80,5 +80,6 @@ Trello was used as a project planning too and also to keep track of ongoing chan
   2. Follower update notification
   3. Not just limited to clothes but also interior design, house design, websites ie.anyting with styling
   4. More than one type of consultation e.g. Videocall or appointment arrangement
+  5. Devise email confirmation
 
 ---
