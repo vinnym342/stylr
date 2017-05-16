@@ -10,7 +10,7 @@ gem 'stripe'
 #Loading environment variables
 gem 'dotenv-rails', groups: [:development, :test]
 #To put all current records into seeds
-gem 'seed_dump'
+gem 'seed_dump',groups: [:development, :test]
 #For file uploads
 gem 'carrierwave', '~> 1.0'
 #For image manipulation
