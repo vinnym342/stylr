@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509071158) do
+ActiveRecord::Schema.define(version: 20170526053221) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "photo_id"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20170509071158) do
     t.integer  "asker_id"
     t.boolean  "resolved"
     t.string   "question"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.datetime "stylist_viewed"
+    t.datetime "asker_viewed"
     t.index ["asker_id"], name: "index_conversations_on_asker_id"
     t.index ["stylist_id"], name: "index_conversations_on_stylist_id"
   end

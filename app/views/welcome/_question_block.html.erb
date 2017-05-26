@@ -1,8 +1,11 @@
 <div class="question">
-  <% puts '=' * 50 %>
-  <% pp conversation %>
-  <% puts '=' * 50 %>
   Username: <%= username %> <br>
   Question: <%= conversation.question %> <br>
+  <% if conversation.stylist_id == current_user.id %>
+Stylist
+  <% elsif conversation.asker_id == current_user.id%>
+Asker
+  <% end %>
+  <br>
   <%= link_to "View",conversation_messages_path(conversation) %>
 </div>
