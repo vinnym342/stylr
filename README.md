@@ -83,5 +83,3 @@ Trello was used as a project planning too and also to keep track of ongoing chan
   5. Add search by profile
   6. Devise email confirmation
   7. Improve security
-
----

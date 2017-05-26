@@ -1,13 +1,21 @@
 source 'https://rubygems.org'
 
+#Run react on rails
+gem "react-rails"
+
+#For S3
 gem "fog", '~> 1.0'
-# hould only be for development
+# Should only be for development
+
 gem 'stripe'
 #Loading environment variables
+
 gem 'dotenv-rails', groups: [:development, :test]
 #To put all current records into seeds
+
 gem 'seed_dump',groups: [:development, :test]
 #For file uploads
+
 gem 'carrierwave', '~> 1.0'
 #For image manipulation
 gem 'mini_magick'
