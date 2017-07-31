@@ -49,7 +49,7 @@ dbdesigner Wireframes
 ## 5. DB Schema
 
 [Dbdesigner](https://dbdesigner.net/designer/schema/86858)
-![DbDesigner](.docu_imgs/dbschema.png)
+![DbDesigner](./docu_imgs/dbschema.png)
 
 ---
 ## 6. Tools used
